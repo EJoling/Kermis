@@ -17,13 +17,15 @@ abstract class Attractie {
 	void draaien() {
 		System.out.println("De attractie " + this.naam + " draait!");
 		System.out.println("");
+		this.aantalKaartjes++;
+		this.omzet += this.prijs;
 	}// end methode draaien
 
-	public void setName(String name) {
-		naam = name;
+	public int getAantalKaartjes() {
+		return aantalKaartjes;
 	}// end setName
 
-	public double getMoney() {
+	public int getMoney() {
 		return omzet;
 	}// end GetMoney
 }// end class Attractie

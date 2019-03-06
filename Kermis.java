@@ -4,8 +4,10 @@ import java.util.Scanner;
 public class Kermis {
 	public static void main(String[] args) {
 		Prompter prompter = new Prompter();
+		Kassa hoofdKassa = new Kassa();
+		
+		//alle attracties aanmaken en wegzetten
 		ArrayList<Attractie> attList = new ArrayList<>();
-
 		attList.add(new Botsauto());
 		attList.add(new Spin());
 		attList.add(new Spiegelpaleis());
@@ -15,6 +17,7 @@ public class Kermis {
 
 		prompter.welkom();
 
+		// keuzeoptie geven
 		while (true) {
 			prompter.keuzeAttractieBericht();
 			Scanner scanner = new Scanner(System.in);
@@ -37,8 +40,14 @@ public class Kermis {
 
 			if (keuzeAttIndex > 0 && keuzeAttIndex < 7) {
 				attList.get((keuzeAttIndex - 1)).draaien();
-			} // end if
+				System.out.println(attList.get((keuzeAttIndex - 1)).getMoney());
+				System.out.println(attList.get((keuzeAttIndex - 1)).getAantalKaartjes());
+				
+				} // end if
 		} // end while
 	}// end main
 
+	
+	
+	
 }// end class Kermis
