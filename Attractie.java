@@ -1,9 +1,9 @@
 
 abstract class Attractie {
 	private String naam;
-	private int prijs;
+	private int prijs;			//in cent
 	private int oppervlakte;
-	private int omzet;
+	private int omzet;			//in cent
 	private int aantalKaartjes;
 
 	public Attractie(String naam, int prijs, int oppervlakte) {
@@ -24,8 +24,15 @@ abstract class Attractie {
 	public int getAantalKaartjes() {
 		return aantalKaartjes;
 	}// end setName
-
+	
+	public int getPrijs() {
+		return prijs;
+	}//end getPrijs
+	public String getNaam() {
+		return naam;
+	}//end getNaam
 	public int getMoney() {
 		return omzet;
 	}// end GetMoney
 }// end class Attractie
+
