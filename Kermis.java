@@ -27,23 +27,25 @@ public class Kermis {
 			Scanner scanner = new Scanner(System.in);
 			String keuzeAtt = scanner.nextLine();
 			
+			
 			int keuzeAttIndex = 0;
-
+			
 			switch (keuzeAtt) {
 			case "o":
 				try {
 				hoofdKassa.overzichtPrinten("omzet");
 				} catch (Exception e) {
 					System.err.println(e.getMessage());
-				}
+				}//end catch
 				break;
 			case "k":
 				try {
 				hoofdKassa.overzichtPrinten("aantalKaartjes");
 				} catch (Exception e) {
 				System.err.println(e.getMessage());
-				}
+				}//end catch
 				break;
+				
 			case "1":
 			case "2":
 			case "3":
@@ -60,10 +62,7 @@ public class Kermis {
 			// zowel de attractie (in de methode draaien) als de hoofdKassa krijgen er omzet
 			// en aantalKaartjes bij
 			if (keuzeAttIndex > 0 && keuzeAttIndex < 7) {
-				attList.get((keuzeAttIndex - 1)).draaien();
-				hoofdKassa.setMoney(attList.get((keuzeAttIndex - 1)).getPrijs());
-				hoofdKassa.setAantalKaartjes();
-
+				attList.get((keuzeAttIndex - 1)).draaien();				
 			} // end if
 
 		} // end while

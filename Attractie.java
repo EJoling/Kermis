@@ -19,6 +19,8 @@ abstract class Attractie {
 		System.out.println("");
 		this.aantalKaartjes++;
 		this.omzet += this.prijs;
+		Kermis.hoofdKassa.setMoney(this.getPrijs());
+		Kermis.hoofdKassa.setAantalKaartjes();
 	}// end methode draaien
 
 	public int getAantalKaartjes() {

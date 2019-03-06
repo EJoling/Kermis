@@ -4,7 +4,7 @@ public class Kassa{
 	private int aantalKaartjes;
 
 	public void setAantalKaartjes() {
-		aantalKaartjes++;
+		aantalKaartjes ++;			
 	}// end setAantalKaartjes
 
 	public int getAantalKaartjes() {
