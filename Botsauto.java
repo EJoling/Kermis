@@ -1,7 +1,7 @@
-class Botsauto extends Attractie{
-	
+class Botsauto extends Attractie {
+
 	public Botsauto() {
-		super("Botsauto", 2.50, 100);
-	}//end constructor 
-	
-}//end class Botsauto
+		super("Botsauto", 250, 100);
+	}// end constructor
+
+}// end class Botsauto

@@ -1,7 +1,7 @@
-class Spiegelpaleis extends Attractie{
+class Spiegelpaleis extends Attractie {
 
 	public Spiegelpaleis() {
-		super("Spiegelpaleis", 2.75, 50);
-	}//end constructor 
+		super("Spiegelpaleis", 275, 50);
+	}// end constructor
 
-}//end class Spiegelpaleis
+}// end class Spiegelpaleis

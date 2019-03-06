@@ -1,40 +1,44 @@
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Kermis {
-	public static void main(String [] args) {
-		
-		Attractie bots = new Botsauto();
-		Attractie spin = new Spin();
-		Attractie spiegel = new Spiegelpaleis();
-		Attractie spook = new Spookhuis();
-		Attractie haw = new Hawaii();
-		Attractie lk = new LadderKlimmen();
-		
-		while(true) {
-		System.out.println("We zijn op de Kermis! Welke attractie wil je in?\n"
-				+ "Voer een keuze voor een attractie in: \n"
-				+ "[1] Botsauto\t[2] Spin\t[3] Spiegelpaleis\t[4] Spookhuis\t[5] Hawaii\t[6] Ladderklimmen");
-		Scanner scanner = new Scanner(System.in);
-		String attractiekeuze = scanner.nextLine();
-		
-	 
-		switch(attractiekeuze) {
-		case "1": bots.draaien(bots);
-		break;
-		case "2": spin.draaien(spin);
-		break;
-		case "3": spiegel.draaien(spiegel);
-		break;
-		case "4": spook.draaien(spook);
-		break;
-		case "5": haw.draaien(haw);
-		break;
-		case "6": lk.draaien(lk);
-		break;
-		default: System.out.println("Niet goed");
-		}//end switch
-		
-		}//end while
-	}//end main
-	
-}//end class Kermis
+	public static void main(String[] args) {
+		Prompter prompter = new Prompter();
+		ArrayList<Attractie> attList = new ArrayList<>();
+
+		attList.add(new Botsauto());
+		attList.add(new Spin());
+		attList.add(new Spiegelpaleis());
+		attList.add(new Spookhuis());
+		attList.add(new Hawaii());
+		attList.add(new LadderKlimmen());
+
+		prompter.welkom();
+
+		while (true) {
+			prompter.keuzeAttractieBericht();
+			Scanner scanner = new Scanner(System.in);
+			String keuzeAtt = scanner.nextLine();
+
+			int keuzeAttIndex = 0;
+
+			switch (keuzeAtt) {
+			case "1":
+			case "2":
+			case "3":
+			case "4":
+			case "5":
+			case "6":
+				keuzeAttIndex = Integer.parseInt(keuzeAtt);
+				break;
+			default:
+				System.out.println("Dit is geen keuzemogelijkheid");
+			}// end switch
+
+			if (keuzeAttIndex > 0 && keuzeAttIndex < 7) {
+				attList.get((keuzeAttIndex - 1)).draaien();
+			} // end if
+		} // end while
+	}// end main
+
+}// end class Kermis

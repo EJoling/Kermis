@@ -1,7 +1,7 @@
-class Spin extends Attractie{
-	
+class Spin extends Attractie {
+
 	public Spin() {
-		super("Spin", 2.25, 30);
-	}//end constructor 
-	
-}//end class Spin
+		super("Spin", 225, 30);
+	}// end constructor
+
+}// end class Spin

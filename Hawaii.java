@@ -1,7 +1,7 @@
-class Hawaii extends Attractie{
+class Hawaii extends Attractie {
 
 	public Hawaii() {
-		super("Hawaii", 2.90, 50);
-	}//end constructor
-	
-}//end class Hawaii
+		super("Hawaii", 290, 50);
+	}// end constructor
+
+}// end class Hawaii

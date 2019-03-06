@@ -1,28 +1,29 @@
 
 abstract class Attractie {
 	private String naam;
-	private double prijs;
+	private int prijs;
 	private int oppervlakte;
-	private double omzet;
+	private int omzet;
 	private int aantalKaartjes;
-	
-		public Attractie(String naam, double prijs, int oppervlakte){
-			this.naam =naam;
-			this.prijs =prijs;
-			this.oppervlakte=oppervlakte;
-			this.omzet=0;
-			this.aantalKaartjes=0;
-		}//end constructor
-	
-	void draaien(Attractie attractie) {
-		System.out.println("De attractie " + attractie.naam + " draait!");
+
+	public Attractie(String naam, int prijs, int oppervlakte) {
+		this.naam = naam;
+		this.prijs = prijs;
+		this.oppervlakte = oppervlakte;
+		this.omzet = 0;
+		this.aantalKaartjes = 0;
+	}// end constructor
+
+	void draaien() {
+		System.out.println("De attractie " + this.naam + " draait!");
 		System.out.println("");
-	}//end methode draaien
-	
+	}// end methode draaien
+
 	public void setName(String name) {
 		naam = name;
-	}//end setName
+	}// end setName
+
 	public double getMoney() {
 		return omzet;
-	}//end GetMoney
-}//end class Attractie
+	}// end GetMoney
+}// end class Attractie
