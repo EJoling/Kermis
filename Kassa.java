@@ -1,24 +1,62 @@
 
 public class Kassa{
-	private int omzet;
-	private int aantalKaartjes;
-
-	public void setAantalKaartjes() {
-		aantalKaartjes ++;			
+	private int omzetTotaal;
+	private int aantalKaartjesTotaal;
+	private int opgegevenBelasting;
+	private int aantalBelastingOpgaven;
+	
+	public void setTotaalAantalKaartjes() {
+		aantalKaartjesTotaal ++;			
 	}// end setAantalKaartjes
 
-	public int getAantalKaartjes() {
-		return aantalKaartjes;
+	public int getTotaalAantalKaartjes() {
+		return aantalKaartjesTotaal;
 	}// end getAantalKaartjes
 
-	public void setMoney(int attractiePrijs) {
-		omzet += attractiePrijs;
+	public void setTotaalMoney(int money) {
+		this.omzetTotaal += money;
+		
 	}// end setMoney
 
-	public int getMoney() {
-		return omzet;
+	public int getTotaalMoney() {
+		return this.omzetTotaal;
 	}// end getMoney
 
+	public void setOpgegevenBelasting(int belasting) {
+		opgegevenBelasting += belasting;
+	}// end setMoney
+
+	public int getOpgegevenBelasting() {
+		return opgegevenBelasting;
+	}// end getMoney
+	
+	public void setaantalBelastingOpgaven(int bezoekje) {
+		aantalBelastingOpgaven += bezoekje;
+	}// end setMoney
+
+	public int getaantalBelastingOpgaven() {
+		return aantalBelastingOpgaven;
+	}// end getMoney
+	
+	
+	//Belasting van GokAttracties uit omzet apart houden
+	public void belastingOpgave(Attractie attractie) {
+		System.out.println("instance of GokAttractie????");
+			if (attractie instanceof GokAttractie) {
+				System.out.println(attractie.getNaam() + "inderdaad instance of GokAttractie");
+				
+				this.opgegevenBelasting += ((GokAttractie) attractie).kansSpelBelastingBetalen(attractie.getMoney());
+			} // end if
+			System.out.println("Kassa opgegeven belasting: " + getOpgegevenBelasting());
+					
+	}// end methode belastingInnen
+	
+	
+	
+	
+	
+	
+	//Printen van omzet, kaartjes of totale belasting
 	static void overzichtPrinten(String type) throws Exception{
 		if (type == "omzet") {
 			System.out.println("Dit is de omzet tot nu toe van de Kermis:");
@@ -28,7 +66,7 @@ public class Kassa{
 						(double) Kermis.attList.get(i).getMoney() / 100);
 			} // end for
 			System.out.println();
-			System.out.printf("%-40s%-6.2f\n", "Totale Omzet", (double) Kermis.hoofdKassa.getMoney() / 100);
+			System.out.printf("%-40s%-6.2f\n", "Totale Omzet", (double) Kermis.hoofdKassa.getTotaalMoney() / 100);
 			System.out.println();
 		} // end if
 		else if (type == "aantalKaartjes") {
@@ -39,7 +77,7 @@ public class Kassa{
 						Kermis.attList.get(i).getAantalKaartjes());
 			} // end for
 			System.out.println();
-			System.out.printf("%-40s%-6d\n", "Totaal aantal kaartjes", Kermis.hoofdKassa.getAantalKaartjes());
+			System.out.printf("%-40s%-6d\n", "Totaal aantal kaartjes", Kermis.hoofdKassa.getTotaalAantalKaartjes());
 			System.out.println();
 		} // end if
 		else{

@@ -5,13 +5,13 @@ public class Kermis {
 	static ArrayList<Attractie> attList = new ArrayList<>();
 	static Prompter prompter = new Prompter();
 	static Kassa hoofdKassa = new Kassa();
+	static BelastingInspecteur richard = new BelastingInspecteur();
 	
 	public static void main(String[] args) {
 		
 		
 
 		// alle attracties aanmaken en wegzetten
-		//ArrayList<Attractie> attList = new ArrayList<>();
 		attList.add(new Botsauto());
 		attList.add(new Spin());
 		attList.add(new Spiegelpaleis());
@@ -31,16 +31,25 @@ public class Kermis {
 			int keuzeAttIndex = 0;
 			
 			switch (keuzeAtt) {
+			case "b":
+				hoofdKassa.belastingOpgave(attList.get(5));
+				System.out.println("Opgegeven belastingKassa: "+ hoofdKassa.getOpgegevenBelasting());
+				System.out.println("De moneys van Richard " + richard.getbetaaldeBelasting());
+				richard.belastingInnen(hoofdKassa);
+				System.out.println("Opgegeven belastingKassa na innen: "+ hoofdKassa.getOpgegevenBelasting());
+				System.out.println("De moneys van Richard erbij na innen: " + richard.getbetaaldeBelasting());
+				System.out.println("Aantal belastingbezoekjes: " + hoofdKassa.getaantalBelastingOpgaven());
+				break;
 			case "o":
 				try {
-				hoofdKassa.overzichtPrinten("omzet");
+				Kassa.overzichtPrinten("omzet");
 				} catch (Exception e) {
 					System.err.println(e.getMessage());
 				}//end catch
 				break;
 			case "k":
 				try {
-				hoofdKassa.overzichtPrinten("aantalKaartjes");
+				Kassa.overzichtPrinten("aantalKaartjes");
 				} catch (Exception e) {
 				System.err.println(e.getMessage());
 				}//end catch
