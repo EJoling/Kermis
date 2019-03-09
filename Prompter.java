@@ -15,7 +15,11 @@ class Prompter {
 
 	static void belastingInspecteur() {
 		System.out.println("De GokSpelBelasting moet betaald worden.");
+	}// end belastingInspecteur()
 
-	}// end welkom()
-
+	static void monteur (String naam) {
+		System.out.println(naam + " rammelde een beetje. Wil je een monteur laten komen door op [m] te drukken?");
+		System.out.println("Je kan het ook niet doen door op [n] te drukken, maar dan doet de attractie " +naam+ " het ook niet.");
+	}
+	
 }// end class Prompter

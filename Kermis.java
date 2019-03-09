@@ -30,7 +30,9 @@ public class Kermis {
 			switch (keuzeAtt) {
 			case "b":
 				Prompter.belastingInspecteur();
-				hoofdKassa.belastingOpgave(attList.get(5));
+				for(Attractie a : attList) {
+				hoofdKassa.belastingOpgave(a);
+				}//end for
 //				System.out.println("Opgegeven belastingKassa: "+ hoofdKassa.getOpgegevenBelasting());
 //				System.out.println("De moneys van Richard " + richard.getbetaaldeBelasting());
 				richard.belastingInnen(hoofdKassa);

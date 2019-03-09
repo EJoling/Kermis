@@ -45,7 +45,7 @@ class LadderKlimmen extends Attractie implements GokAttractie {
 		if (this.getAantalKaartjes() > 0) {
 			aantalBelastbareKaartjes = this.getAantalKaartjes() - this.aantalNietBelastbareKaartjes;
 			System.out.println(
-					"Aantal kaartjes verkocht waarover belasting betaald kan worden. " + aantalBelastbareKaartjes);
+					"Aantal kaartjes verkocht waarover nog belasting betaald moet worden. " + aantalBelastbareKaartjes);
 			setBelasting(aantalBelastbareKaartjes * this.getPrijs());
 			setTotaalBelasting(getBelasting());
 //				System.out.println("kansSpelBelastingBetalen in LadderKlimmen :" + getBelasting());

@@ -10,18 +10,25 @@ abstract class RisicoRijkeAttractie extends Attractie {
 	}// end constructor
 
 	abstract boolean opstellingsKeuring();
-
+	
+	abstract void onderhoudsbeurt();
 
 	// overrides Attractie.draaien()
 	void draaien() {
 		if(inBedrijf == true){
 				super.draaien();
 			} // end if
-		
-		if (inBedrijf == true && (getAantalKaartjes()%draailimiet) == 0) {
-			inBedrijf = false;
-			}//end if
-		else if (inBedrijf == false) {
+		try {
+			if (inBedrijf == true && (getAantalKaartjes()%draailimiet) == 0) {
+				inBedrijf = false;
+				throw new OnderhoudsException ();
+				}//end if
+		}catch (OnderhoudsException e) {
+			System.err.println(e.getMessage());
+			onderhoudsbeurt();
+		}//end catch
+			
+		if (this.getAantalKaartjes()==0) {
 			System.out.println("De attractie " + getNaam()
 					+ " moet eerst een opstellingskeuring krijgen. Kom later terug.");
 			opstellingsKeuring();

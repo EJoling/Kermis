@@ -48,13 +48,12 @@ public class Kassa {
 
 	// Belasting van GokAttracties uit omzet apart houden
 	public void belastingOpgave(Attractie attractie) {
-		System.out.println("instance of GokAttractie????");
+//		System.out.println("instance of GokAttractie????");
 		if (attractie instanceof GokAttractie) {
-			System.out.println(attractie.getNaam() + "inderdaad instance of GokAttractie");
+			System.out.println(attractie.getNaam() + " is een GokAttractie.");
 			this.opgegevenBelasting += ((GokAttractie) attractie).kansSpelBelastingBetalen(attractie.getMoney());
-			
 		} // end if
-		System.out.println("Kassa opgegeven belasting: " + getOpgegevenBelasting());
+//		System.out.println("Kassa opgegeven belasting: " + getOpgegevenBelasting());
 	}// end methode belastingOpgave
 
 	// Printen van omzet, kaartjes of totale belasting
@@ -67,7 +66,9 @@ public class Kassa {
 						(double) Kermis.attList.get(i).getMoney() / 100);
 			} // end for
 			System.out.println();
-			System.out.printf("%-40s%-6.2f\n", "Totale Omzet", (double) Kermis.hoofdKassa.getTotaalMoney() / 100);
+			System.out.printf("%-40s%-6.2f\n", "Totale Winst", (double) Kermis.hoofdKassa.getTotaalMoney() / 100);
+			System.out.printf("%-40s%-6.2f\n", "Totale Omzet",
+					(double) (Kermis.hoofdKassa.getTotaalMoney() + Kermis.hoofdKassa.getTotaalBelasting()) / 100);
 			System.out.println();
 		} // end if
 		else if (type == "aantalKaartjes") {
@@ -86,13 +87,10 @@ public class Kassa {
 			for (Attractie attractie : Kermis.attList) {
 				if (attractie instanceof GokAttractie) {
 					System.out.println();
-					System.out.printf("%-40s%-10.2f\n",
-							 attractie.getNaam() + " dit bezoek",
+					System.out.printf("%-40s%-10.2f\n", attractie.getNaam() + " dit bezoek",
 							(double) ((GokAttractie) attractie).getBelasting() / 100);
-					System.out.printf("%-40s%-10.2f\n",
-							 attractie.getNaam() + " totaal",
+					System.out.printf("%-40s%-10.2f\n", attractie.getNaam() + " totaal",
 							(double) ((GokAttractie) attractie).getTotaalBelasting() / 100);
-					System.out.println();
 				} // end if
 			} // end for
 			System.out.println();
