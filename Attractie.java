@@ -27,8 +27,6 @@ abstract class Attractie {
 		return aantalKaartjes;
 	}// end setName
 
-	
-
 	public int getPrijs() {
 		return prijs;
 	}// end getPrijs

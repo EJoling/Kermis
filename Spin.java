@@ -3,17 +3,12 @@ class Spin extends RisicoRijkeAttractie {
 	public Spin() {
 		super("Spin", 225, 30);
 		draailimiet = 5;
-		
+
 	}// end constructor
 
 	boolean opstellingsKeuring() {
 		inBedrijf = true;
-		System.out.println("Keuring in Spin");
-
-		System.out.println(inBedrijf);
 		aantalKeuringen++;
-
-		System.out.println(aantalKeuringen);
 		return inBedrijf;
 	}// end opstellingsKeuring
 }// end class Spin

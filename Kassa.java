@@ -1,12 +1,13 @@
 
-public class Kassa{
+public class Kassa {
 	private int omzetTotaal;
 	private int aantalKaartjesTotaal;
 	private int opgegevenBelasting;
+	private int totaalBelasting;
 	private int aantalBelastingOpgaven;
-	
+
 	public void setTotaalAantalKaartjes() {
-		aantalKaartjesTotaal ++;			
+		aantalKaartjesTotaal++;
 	}// end setAantalKaartjes
 
 	public int getTotaalAantalKaartjes() {
@@ -15,7 +16,6 @@ public class Kassa{
 
 	public void setTotaalMoney(int money) {
 		this.omzetTotaal += money;
-		
 	}// end setMoney
 
 	public int getTotaalMoney() {
@@ -29,35 +29,36 @@ public class Kassa{
 	public int getOpgegevenBelasting() {
 		return opgegevenBelasting;
 	}// end getMoney
-	
-	public void setaantalBelastingOpgaven(int bezoekje) {
-		aantalBelastingOpgaven += bezoekje;
+
+	public void setTotaalBelasting(int money) {
+		this.totaalBelasting += money;
+	}// end setMoney
+
+	public int getTotaalBelasting() {
+		return this.totaalBelasting;
+	}// end getMoney
+
+	public void setaantalBelastingOpgaven() {
+		aantalBelastingOpgaven++;
 	}// end setMoney
 
 	public int getaantalBelastingOpgaven() {
 		return aantalBelastingOpgaven;
 	}// end getMoney
-	
-	
-	//Belasting van GokAttracties uit omzet apart houden
+
+	// Belasting van GokAttracties uit omzet apart houden
 	public void belastingOpgave(Attractie attractie) {
 		System.out.println("instance of GokAttractie????");
-			if (attractie instanceof GokAttractie) {
-				System.out.println(attractie.getNaam() + "inderdaad instance of GokAttractie");
-				
-				this.opgegevenBelasting += ((GokAttractie) attractie).kansSpelBelastingBetalen(attractie.getMoney());
-			} // end if
-			System.out.println("Kassa opgegeven belasting: " + getOpgegevenBelasting());
-					
-	}// end methode belastingInnen
-	
-	
-	
-	
-	
-	
-	//Printen van omzet, kaartjes of totale belasting
-	static void overzichtPrinten(String type) throws Exception{
+		if (attractie instanceof GokAttractie) {
+			System.out.println(attractie.getNaam() + "inderdaad instance of GokAttractie");
+			this.opgegevenBelasting += ((GokAttractie) attractie).kansSpelBelastingBetalen(attractie.getMoney());
+			
+		} // end if
+		System.out.println("Kassa opgegeven belasting: " + getOpgegevenBelasting());
+	}// end methode belastingOpgave
+
+	// Printen van omzet, kaartjes of totale belasting
+	static void overzichtPrinten(String type) throws Exception {
 		if (type == "omzet") {
 			System.out.println("Dit is de omzet tot nu toe van de Kermis:");
 
@@ -80,8 +81,29 @@ public class Kassa{
 			System.out.printf("%-40s%-6d\n", "Totaal aantal kaartjes", Kermis.hoofdKassa.getTotaalAantalKaartjes());
 			System.out.println();
 		} // end if
-		else{
+		else if (type == "belasting") {
+			System.out.println("Dit is de afgedragen belasting tot nu toe van de Kermis:");
+			for (Attractie attractie : Kermis.attList) {
+				if (attractie instanceof GokAttractie) {
+					System.out.println();
+					System.out.printf("%-40s%-10.2f\n",
+							 attractie.getNaam() + " dit bezoek",
+							(double) ((GokAttractie) attractie).getBelasting() / 100);
+					System.out.printf("%-40s%-10.2f\n",
+							 attractie.getNaam() + " totaal",
+							(double) ((GokAttractie) attractie).getTotaalBelasting() / 100);
+					System.out.println();
+				} // end if
+			} // end for
+			System.out.println();
+			System.out.printf("%-40s%-10d\n", "Aantal bezoeken belastinginspecteur",
+					Kermis.hoofdKassa.aantalBelastingOpgaven);
+			System.out.printf("%-40s%-10.2f\n", "Totaal afgedragen belasting",
+					(double) Kermis.hoofdKassa.getTotaalBelasting() / 100);
+			System.out.println();
+		} // end else if
+		else {
 			throw new Exception("Ongeldige invoer in argument overzichtPrinten()");
-		}
+		} // end else
 	}// end overzichtPrinten
 }// end class Kassa

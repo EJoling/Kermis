@@ -6,10 +6,8 @@ public class Kermis {
 	static Prompter prompter = new Prompter();
 	static Kassa hoofdKassa = new Kassa();
 	static BelastingInspecteur richard = new BelastingInspecteur();
-	
+
 	public static void main(String[] args) {
-		
-		
 
 		// alle attracties aanmaken en wegzetten
 		attList.add(new Botsauto());
@@ -26,35 +24,40 @@ public class Kermis {
 			prompter.keuzeAttractieBericht();
 			Scanner scanner = new Scanner(System.in);
 			String keuzeAtt = scanner.nextLine();
-			
-			
+
 			int keuzeAttIndex = 0;
-			
+
 			switch (keuzeAtt) {
 			case "b":
+				Prompter.belastingInspecteur();
 				hoofdKassa.belastingOpgave(attList.get(5));
-				System.out.println("Opgegeven belastingKassa: "+ hoofdKassa.getOpgegevenBelasting());
-				System.out.println("De moneys van Richard " + richard.getbetaaldeBelasting());
+//				System.out.println("Opgegeven belastingKassa: "+ hoofdKassa.getOpgegevenBelasting());
+//				System.out.println("De moneys van Richard " + richard.getbetaaldeBelasting());
 				richard.belastingInnen(hoofdKassa);
-				System.out.println("Opgegeven belastingKassa na innen: "+ hoofdKassa.getOpgegevenBelasting());
-				System.out.println("De moneys van Richard erbij na innen: " + richard.getbetaaldeBelasting());
-				System.out.println("Aantal belastingbezoekjes: " + hoofdKassa.getaantalBelastingOpgaven());
+//				System.out.println("Opgegeven belastingKassa na innen: "+ hoofdKassa.getOpgegevenBelasting());
+//				System.out.println("De moneys van Richard erbij na innen: " + richard.getbetaaldeBelasting());
+//				System.out.println("Aantal belastingbezoekjes: " + hoofdKassa.getaantalBelastingOpgaven());
+				try {
+					Kassa.overzichtPrinten("belasting");
+				} catch (Exception e) {
+					System.err.println(e.getMessage());
+				} // end catch
 				break;
 			case "o":
 				try {
-				Kassa.overzichtPrinten("omzet");
+					Kassa.overzichtPrinten("omzet");
 				} catch (Exception e) {
 					System.err.println(e.getMessage());
-				}//end catch
+				} // end catch
 				break;
 			case "k":
 				try {
-				Kassa.overzichtPrinten("aantalKaartjes");
+					Kassa.overzichtPrinten("aantalKaartjes");
 				} catch (Exception e) {
-				System.err.println(e.getMessage());
-				}//end catch
+					System.err.println(e.getMessage());
+				} // end catch
 				break;
-				
+
 			case "1":
 			case "2":
 			case "3":
@@ -71,20 +74,11 @@ public class Kermis {
 			// zowel de attractie (in de methode draaien) als de hoofdKassa krijgen er omzet
 			// en aantalKaartjes bij
 			if (keuzeAttIndex > 0 && keuzeAttIndex < 7) {
-				attList.get((keuzeAttIndex - 1)).draaien();				
+				attList.get((keuzeAttIndex - 1)).draaien();
 			} // end if
 
 		} // end while
-	
+
 	}// end main
 
 }// end class Kermis
-
-
-
-
-
-
-
-
-

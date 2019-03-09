@@ -9,9 +9,13 @@ class Prompter {
 
 	static void keuzeAttractieBericht() {
 		System.out.println("Voer een keuze voor een attractie in: \n"
-				+ "[1] Botsauto\t[2] Spin\t[3] Spiegelpaleis\t[4] Spookhuis\t[5] Hawaii\t[6] Ladderklimmen\t [o] Omzet\t [k] Aantal kaartjes");
+				+ "[1] Botsauto\t[2] Spin\t[3] Spiegelpaleis\t[4] Spookhuis\t[5] Hawaii\t[6] Ladderklimmen");
+		System.out.println("[b] BelastingInspecteur \t[o] Omzet\t \t[k] Aantal kaartjes\t ");
 	}// end keuzeAttractie
 
-	
+	static void belastingInspecteur() {
+		System.out.println("De GokSpelBelasting moet betaald worden.");
+
+	}// end welkom()
 
 }// end class Prompter

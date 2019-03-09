@@ -25,7 +25,7 @@ abstract class RisicoRijkeAttractie extends Attractie {
 			System.out.println("De attractie " + getNaam()
 					+ " moet eerst een opstellingskeuring krijgen. Kom later terug.");
 			opstellingsKeuring();
-
+			System.out.println();
 			} // end outer if
 
 	}// end methode draaien
