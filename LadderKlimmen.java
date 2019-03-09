@@ -48,10 +48,8 @@ class LadderKlimmen extends Attractie implements GokAttractie {
 					"Aantal kaartjes verkocht waarover nog belasting betaald moet worden. " + aantalBelastbareKaartjes);
 			setBelasting(aantalBelastbareKaartjes * this.getPrijs());
 			setTotaalBelasting(getBelasting());
-//				System.out.println("kansSpelBelastingBetalen in LadderKlimmen :" + getBelasting());
 			setMoney(-getBelasting());
 			Kermis.hoofdKassa.setTotaalMoney(-getBelasting());
-//				System.out.println("Moneys omzet in ladderklimmen " + getMoney());
 			resetaantalNietBelastbareKaartjes(this.getAantalKaartjes());
 			resetAantalBelastbareKaartjes(0);
 			return getBelasting();

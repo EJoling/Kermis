@@ -19,8 +19,9 @@ public class Kermis {
 
 		prompter.welkom();
 
+		boolean spelen = true;
 		// keuzeoptie geven
-		while (true) {
+		while (spelen == true) {
 			prompter.keuzeAttractieBericht();
 			Scanner scanner = new Scanner(System.in);
 			String keuzeAtt = scanner.nextLine();
@@ -28,17 +29,16 @@ public class Kermis {
 			int keuzeAttIndex = 0;
 
 			switch (keuzeAtt) {
+			case "q":
+				System.out.println("Hopelijk had je een leuke dag op de kermmis. Tot ziens!");
+				spelen = false;
+				break;
 			case "b":
 				Prompter.belastingInspecteur();
-				for(Attractie a : attList) {
-				hoofdKassa.belastingOpgave(a);
-				}//end for
-//				System.out.println("Opgegeven belastingKassa: "+ hoofdKassa.getOpgegevenBelasting());
-//				System.out.println("De moneys van Richard " + richard.getbetaaldeBelasting());
+				for (Attractie a : attList) {
+					hoofdKassa.belastingOpgave(a);
+				} // end for
 				richard.belastingInnen(hoofdKassa);
-//				System.out.println("Opgegeven belastingKassa na innen: "+ hoofdKassa.getOpgegevenBelasting());
-//				System.out.println("De moneys van Richard erbij na innen: " + richard.getbetaaldeBelasting());
-//				System.out.println("Aantal belastingbezoekjes: " + hoofdKassa.getaantalBelastingOpgaven());
 				try {
 					Kassa.overzichtPrinten("belasting");
 				} catch (Exception e) {

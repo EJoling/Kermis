@@ -10,30 +10,33 @@ abstract class RisicoRijkeAttractie extends Attractie {
 	}// end constructor
 
 	abstract boolean opstellingsKeuring();
-	
+
 	abstract void onderhoudsbeurt();
 
-	// overrides Attractie.draaien()
+	// overrides Attractie.draaien(). Als RisicoRijkeAttractie inBedrijf is:
+	// draaien. Als inBedrijf = false:
 	void draaien() {
-		if(inBedrijf == true){
-				super.draaien();
-			} // end if
-		try {
-			if (inBedrijf == true && (getAantalKaartjes()%draailimiet) == 0) {
-				inBedrijf = false;
-				throw new OnderhoudsException ();
-				}//end if
-		}catch (OnderhoudsException e) {
-			System.err.println(e.getMessage());
-			onderhoudsbeurt();
-		}//end catch
-			
-		if (this.getAantalKaartjes()==0) {
-			System.out.println("De attractie " + getNaam()
-					+ " moet eerst een opstellingskeuring krijgen. Kom later terug.");
+		if (this.getAantalKaartjes() == 0) {
 			opstellingsKeuring();
-			System.out.println();
-			} // end outer if
+			System.err.println("Voor de attractie " + getNaam()
+					+ " was eerst een opstellingskeuring nodig. Bedankt voor het wachten!");
+		} // end if
+
+		if (inBedrijf == true) {
+			super.draaien();
+		} // end if
+
+		try {
+			if ((getAantalKaartjes() % draailimiet) == 0) {
+				inBedrijf = false;
+				throw new OnderhoudsException();
+			} // end inner if
+		} // end try
+		catch (OnderhoudsException e) {
+			e.OnderhoudsException();
+			onderhoudsbeurt();
+		} // end catch
+//		} // end if
 
 	}// end methode draaien
 

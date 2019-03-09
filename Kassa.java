@@ -48,12 +48,10 @@ public class Kassa {
 
 	// Belasting van GokAttracties uit omzet apart houden
 	public void belastingOpgave(Attractie attractie) {
-//		System.out.println("instance of GokAttractie????");
 		if (attractie instanceof GokAttractie) {
 			System.out.println(attractie.getNaam() + " is een GokAttractie.");
 			this.opgegevenBelasting += ((GokAttractie) attractie).kansSpelBelastingBetalen(attractie.getMoney());
 		} // end if
-//		System.out.println("Kassa opgegeven belasting: " + getOpgegevenBelasting());
 	}// end methode belastingOpgave
 
 	// Printen van omzet, kaartjes of totale belasting
