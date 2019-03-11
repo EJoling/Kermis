@@ -4,9 +4,9 @@ abstract class RisicoRijkeAttractie extends Attractie {
 	boolean inBedrijf;
 	int aantalKeuringen;
 
-	public RisicoRijkeAttractie(String naam, int prijs, int oppervlakte) {
+	public RisicoRijkeAttractie(String naam, int prijs, int oppervlakte, int draailimiet) {
 		super(naam, prijs, oppervlakte);
-
+		this.draailimiet = draailimiet;
 	}// end constructor
 
 	abstract boolean opstellingsKeuring();
@@ -33,7 +33,7 @@ abstract class RisicoRijkeAttractie extends Attractie {
 			} // end inner if
 		} // end try
 		catch (OnderhoudsException e) {
-			e.OnderhoudsException();
+			System.err.println(e.getMessage());
 			onderhoudsbeurt();
 		} // end catch
 //		} // end if

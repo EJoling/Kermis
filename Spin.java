@@ -8,8 +8,7 @@ class Spin extends RisicoRijkeAttractie implements GokAttractie {
 	private int aantalNietBelastbareKaartjes;
 
 	public Spin() {
-		super("Spin", 225, 30);
-		draailimiet = 5;
+		super("Spin", 225, 30,5);
 
 	}// end constructor
 
@@ -17,9 +16,9 @@ class Spin extends RisicoRijkeAttractie implements GokAttractie {
 		this.inBedrijf = true;
 		this.aantalKeuringen++;
 		LocalDateTime van = LocalDateTime.now();
-		LocalDateTime tot = van.withSecond(van.getSecond() + 2);
-		van.equals(tot);
-		while (!van.equals(tot)) {
+		LocalDateTime tot = van.plusSeconds(2);
+//		van.equals(tot);
+		while (van.isBefore(tot)) {
 			System.out.println("");
 			System.out.println("");
 			System.out.println("");

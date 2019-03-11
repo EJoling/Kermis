@@ -4,8 +4,7 @@ import java.util.Scanner;
 class Hawaii extends RisicoRijkeAttractie {
 
 	public Hawaii() {
-		super("Hawaii", 290, 50);
-		draailimiet = 10;
+		super("Hawaii", 290, 50, 10);
 	}// end constructor
 
 	boolean opstellingsKeuring() {
